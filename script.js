@@ -1,80 +1,87 @@
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.navbar-nav .nav-item a').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-          document.querySelectorAll('.navbar-nav .nav-item a').forEach(link => {
-              link.classList.remove('active');
-          });
-          e.target.classList.add('active');
-      });
-  });
+    // Menambahkan event listener untuk setiap link di navbar
+    document.querySelectorAll('.navbar-nav .nav-item a').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            document.querySelectorAll('.navbar-nav .nav-item a').forEach(link => {
+                link.classList.remove('active');
+            });
+            e.target.classList.add('active');
+            
+            // Menutup navbar setelah klik pada item menu
+            const navbarCollapse = document.getElementById('navbarNav');
+            const bootstrapCollapse = new bootstrap.Collapse(navbarCollapse, {
+                toggle: false
+            });
+            bootstrapCollapse.hide(); // Menyembunyikan navbar
+        });
+    });
 });
-// JavaScript untuk Website Kuliner Nusantara
 
 // Array resep tradisional Indonesia beserta bahan-bahannya
 const recipes = [
-  {
-      name: "Rendang",
-      description: "Hidangan daging pedas khas Padang",
-      ingredients: [
-          "Daging sapi",
-          "Santan kelapa",
-          "Cabai merah",
-          "Bawang putih",
-          "Bawang merah",
-          "Daun kunyit",
-          "Lengkuas",
-          "Serai"
-      ]
-  },
-  {
-      name: "Nasi Goreng",
-      description: "Nasi goreng khas Indonesia",
-      ingredients: [
-          "Nasi",
-          "Kecap manis",
-          "Bawang putih",
-          "Bawang merah",
-          "Telur",
-          "Ayam atau udang",
-          "Sayuran"
-      ]
-  },
-  {
-      name: "Sate",
-      description: "Daging yang ditusuk dan dipanggang, disajikan dengan saus kacang",
-      ingredients: [
-          "Daging (ayam, sapi, atau kambing)",
-          "Tusuk sate",
-          "Saus kacang",
-          "Kecap manis",
-          "Jeruk nipis"
-      ]
-  },
-  {
-      name: "Gado-Gado",
-      description: "Salad Indonesia dengan saus kacang",
-      ingredients: [
-          "Sayuran rebus",
-          "Tahu",
-          "Tempe",
-          "Telur rebus",
-          "Saus kacang",
-          "Krupuk (kerupuk)"
-      ]
-  },
-  {
-      name: "Soto Ayam",
-      description: "Sup mie ayam",
-      ingredients: [
-          "Ayam",
-          "Vermisili nasi",
-          "Kunyit",
-          "Bawang putih",
-          "Bawang merah",
-          "Jeruk nipis",
-          "Telur rebus"
-      ]
-  }
+    {
+        name: "Rendang",
+        description: "Hidangan daging pedas khas Padang",
+        ingredients: [
+            "Daging sapi",
+            "Santan kelapa",
+            "Cabai merah",
+            "Bawang putih",
+            "Bawang merah",
+            "Daun kunyit",
+            "Lengkuas",
+            "Serai"
+        ]
+    },
+    {
+        name: "Nasi Goreng",
+        description: "Nasi goreng khas Indonesia",
+        ingredients: [
+            "Nasi",
+            "Kecap manis",
+            "Bawang putih",
+            "Bawang merah",
+            "Telur",
+            "Ayam atau udang",
+            "Sayuran"
+        ]
+    },
+    {
+        name: "Sate",
+        description: "Daging yang ditusuk dan dipanggang, disajikan dengan saus kacang",
+        ingredients: [
+            "Daging (ayam, sapi, atau kambing)",
+            "Tusuk sate",
+            "Saus kacang",
+            "Kecap manis",
+            "Jeruk nipis"
+        ]
+    },
+    {
+        name: "Gado-Gado",
+        description: "Salad Indonesia dengan saus kacang",
+        ingredients: [
+            "Sayuran rebus",
+            "Tahu",
+            "Tempe",
+            "Telur rebus",
+            "Saus kacang",
+            "Krupuk (kerupuk)"
+        ]
+    },
+    {
+        name: "Soto Ayam",
+        description: "Sup mie ayam",
+        ingredients: [
+            "Ayam",
+            "Vermisili nasi",
+            "Kunyit",
+            "Bawang putih",
+            "Bawang merah",
+            "Jeruk nipis",
+            "Telur rebus"
+        ]
+    }
 ];
 
 // Menampilkan pilihan resep di dropdown
@@ -107,3 +114,4 @@ recipeSelect.addEventListener("change", function() {
         recipeIngredients.appendChild(li);
     });
 });
+
